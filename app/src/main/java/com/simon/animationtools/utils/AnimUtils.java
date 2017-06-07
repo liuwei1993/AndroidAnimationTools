@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.Animatable;
 
+import com.simon.animationtools.drawable.AnimationDrawable;
+
 
 public class AnimUtils {
 
@@ -19,19 +21,19 @@ public class AnimUtils {
         }
     }
 
-    public static void start(Animatable... animList) {
+    public static void start(AnimationDrawable... animList) {
         for (Animatable animatable : animList) {
             animatable.start();
         }
     }
 
-    public static void stop(Animatable... animList) {
+    public static void stop(AnimationDrawable... animList) {
         for (Animatable animatable : animList) {
             animatable.stop();
         }
     }
 
-    public static boolean isRunning(Animatable... animList) {
+    public static boolean isRunning(AnimationDrawable... animList) {
         for (Animatable animatable : animList) {
             if (animatable.isRunning()) {
                 return true;

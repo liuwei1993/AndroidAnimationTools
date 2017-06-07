@@ -1,9 +1,8 @@
-package com.simon.animationtools.drawable.impl;
+package com.simon.animationtools.drawable.shape;
 
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
 
-import com.simon.animationtools.drawable.RectAnimDrawable;
 import com.simon.animationtools.utils.DrawableAnimatorBuilder;
 
 public class RotatingPlane extends RectAnimDrawable {

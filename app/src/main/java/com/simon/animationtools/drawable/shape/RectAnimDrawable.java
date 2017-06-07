@@ -1,4 +1,4 @@
-package com.simon.animationtools.drawable;
+package com.simon.animationtools.drawable.shape;
 
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;

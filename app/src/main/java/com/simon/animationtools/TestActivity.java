@@ -1,13 +1,12 @@
 package com.simon.animationtools;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.simon.animationtools.drawable.impl.RotatingPlane;
+import com.simon.animationtools.drawable.container.DoubleCircleBounce;
 
 /**
  * test activity
@@ -25,10 +24,13 @@ public class TestActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_test);
         ImageView imageView = (ImageView) findViewById(R.id.image);
-        RotatingPlane rotatingPlane = new RotatingPlane();
-        rotatingPlane.setColor(Color.RED);
-        imageView.setImageDrawable(rotatingPlane);
-        rotatingPlane.start();
+        /*RotatingPlane rotatingPlane = new RotatingPlane();
+        rotatingPlane.setColor(Color.RED);*/
+        /*Pulse pulse = new Pulse();
+        pulse.setColor(Color.BLUE);*/
+        DoubleCircleBounce drawable = new DoubleCircleBounce();
+        imageView.setImageDrawable(drawable);
+        drawable.start();
         /*float fractions2[] = new float[]{0f, 0.5f, 1f};
         ObjectAnimator objectAnimator = new ViewAnimatorBuilder(imageView).
                 rotateX(fractions2, 0f, -180f, -180f).

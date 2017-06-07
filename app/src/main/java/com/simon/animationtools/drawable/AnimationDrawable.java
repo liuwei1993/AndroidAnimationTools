@@ -143,6 +143,7 @@ public abstract class AnimationDrawable extends Drawable implements
 
     @Override
     public void start() {
+        animator.setStartDelay(getAnimationDelay());
         AnimUtils.start(animator);
     }
 

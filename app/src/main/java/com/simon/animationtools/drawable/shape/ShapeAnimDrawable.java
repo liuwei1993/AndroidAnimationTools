@@ -1,9 +1,11 @@
-package com.simon.animationtools.drawable;
+package com.simon.animationtools.drawable.shape;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+
+import com.simon.animationtools.drawable.AnimationDrawable;
 
 /**
  *
