@@ -1,8 +1,10 @@
 package com.simon.animationtools.drawable.impl;
 
+import android.animation.ValueAnimator;
 import android.graphics.Rect;
 
 import com.simon.animationtools.drawable.RectAnimDrawable;
+import com.simon.animationtools.utils.DrawableAnimatorBuilder;
 
 public class RotatingPlane extends RectAnimDrawable {
 
@@ -11,14 +13,14 @@ public class RotatingPlane extends RectAnimDrawable {
         setDrawBounds(clipSquare(bounds));
     }
 
-    /*@Override
+    @Override
     public ValueAnimator createAnimator() {
         float fractions[] = new float[]{0f, 0.5f, 1f};
-        return new SpriteAnimatorBuilder(this).
-                rotateX(fractions, 0, -180, -180).
-                rotateY(fractions, 0, 0, -180).
+        return new DrawableAnimatorBuilder(this).
+                rotateX(fractions, 0f, -180f, -180f).
+                rotateY(fractions, 0f, 0f, -180f).
                 duration(1200).
                 easeInOut(fractions)
                 .build();
-    }*/
+    }
 }

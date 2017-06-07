@@ -45,6 +45,7 @@ public abstract class ShapeAnimDrawable extends AnimationDrawable {
         updateUseColor();
     }
 
+
     private void updateUseColor() {
         int alpha = getAlpha();
         alpha += alpha >> 7;

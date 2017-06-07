@@ -38,13 +38,13 @@ public abstract class AnimationDrawable extends Drawable implements
     private float pivotX;
     private float pivotY;
     private int animationDelay;
-    private int rotateX;
-    private int rotateY;
-    private int translateX;
-    private int translateY;
-    private int rotate;
-    private float translateXPercentage;
-    private float translateYPercentage;
+    private float rotationX;
+    private float rotationY;
+    private float translationX;
+    private float translationY;
+    private float rotation;
+    private float translationXPercentage;
+    private float translationYPercentage;
     private @IntRange(from = 0, to = 255) int alpha = 255;
     protected Rect drawBounds = ZERO_BOUNDS_RECT;
 
@@ -58,6 +58,7 @@ public abstract class AnimationDrawable extends Drawable implements
         mCamera = new Camera();
         mMatrix = new Matrix();
         animator = createAnimator();
+        animator.addUpdateListener(this);
     }
 
     protected abstract ValueAnimator createAnimator();
@@ -70,18 +71,18 @@ public abstract class AnimationDrawable extends Drawable implements
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        int tx = getTranslateX();
-        tx = tx == 0 ? (int) (getBounds().width() * getTranslateXPercentage()) : tx;
-        int ty = getTranslateY();
-        ty = ty == 0 ? (int) (getBounds().height() * getTranslateYPercentage()) : ty;
+        float tx = getTranslationX();
+        tx = tx == 0 ? (int) (getBounds().width() * getTranslationXPercentage()) : tx;
+        float ty = getTranslationY();
+        ty = ty == 0 ? (int) (getBounds().height() * getTranslationYPercentage()) : ty;
         canvas.translate(tx, ty);
         canvas.scale(getScaleX(), getScaleY(), getPivotX(), getPivotY());
-        canvas.rotate(getRotate(), getPivotX(), getPivotY());
+        canvas.rotate(getRotation(), getPivotX(), getPivotY());
 
-        if (getRotateX() != 0 || getRotateY() != 0) {
+        if (getRotationX() != 0 || getRotationY() != 0) {
             mCamera.save();
-            mCamera.rotateX(getRotateX());
-            mCamera.rotateY(getRotateY());
+            mCamera.rotateX(getRotationX());
+            mCamera.rotateY(getRotationY());
             mCamera.getMatrix(mMatrix);
             mMatrix.preTranslate(-getPivotX(), -getPivotY());
             mMatrix.postTranslate(getPivotX(), getPivotY());
@@ -131,13 +132,13 @@ public abstract class AnimationDrawable extends Drawable implements
 
     public void reset() {
         scale = 1;
-        rotateX = 0;
-        rotateY = 0;
-        translateX = 0;
-        translateY = 0;
-        rotate = 0;
-        translateXPercentage = 0f;
-        translateYPercentage = 0f;
+        rotationX = 0;
+        rotationY = 0;
+        translationX = 0;
+        translationY = 0;
+        rotation = 0;
+        translationXPercentage = 0f;
+        translationYPercentage = 0f;
     }
 
     @Override
@@ -221,60 +222,60 @@ public abstract class AnimationDrawable extends Drawable implements
         this.animationDelay = animationDelay;
     }
 
-    public int getRotateX() {
-        return rotateX;
+    public float getRotationX() {
+        return rotationX;
     }
 
-    public void setRotateX(int rotateX) {
-        this.rotateX = rotateX;
+    public void setRotationX(float rotationX) {
+        this.rotationX = rotationX;
     }
 
-    public int getRotateY() {
-        return rotateY;
+    public float getRotationY() {
+        return rotationY;
     }
 
-    public void setRotateY(int rotateY) {
-        this.rotateY = rotateY;
+    public void setRotationY(float rotateY) {
+        this.rotationY = rotateY;
     }
 
-    public int getTranslateX() {
-        return translateX;
+    public float getTranslationX() {
+        return translationX;
     }
 
-    public void setTranslateX(int translateX) {
-        this.translateX = translateX;
+    public void setTranslationX(float translationX) {
+        this.translationX = translationX;
     }
 
-    public int getTranslateY() {
-        return translateY;
+    public float getTranslationY() {
+        return translationY;
     }
 
-    public void setTranslateY(int translateY) {
-        this.translateY = translateY;
+    public void setTranslationY(float translationY) {
+        this.translationY = translationY;
     }
 
-    public int getRotate() {
-        return rotate;
+    public float getRotation() {
+        return rotation;
     }
 
-    public void setRotate(int rotate) {
-        this.rotate = rotate;
+    public void setRotation(float rotate) {
+        this.rotation = rotate;
     }
 
-    public float getTranslateXPercentage() {
-        return translateXPercentage;
+    public float getTranslationXPercentage() {
+        return translationXPercentage;
     }
 
-    public void setTranslateXPercentage(float translateXPercentage) {
-        this.translateXPercentage = translateXPercentage;
+    public void setTranslationXPercentage(float translationXPercentage) {
+        this.translationXPercentage = translationXPercentage;
     }
 
-    public float getTranslateYPercentage() {
-        return translateYPercentage;
+    public float getTranslationYPercentage() {
+        return translationYPercentage;
     }
 
-    public void setTranslateYPercentage(float translateYPercentage) {
-        this.translateYPercentage = translateYPercentage;
+    public void setTranslationYPercentage(float translationYPercentage) {
+        this.translationYPercentage = translationYPercentage;
     }
 
     public Rect getDrawBounds() {
@@ -296,6 +297,5 @@ public abstract class AnimationDrawable extends Drawable implements
         setPivotX(getDrawBounds().centerX());
         setPivotY(getDrawBounds().centerY());
     }
-
 
 }
