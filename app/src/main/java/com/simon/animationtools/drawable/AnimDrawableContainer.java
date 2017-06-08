@@ -82,7 +82,7 @@ public abstract class AnimDrawableContainer extends AnimationDrawable{
     }
 
     @Override
-    protected ValueAnimator createAnimator() {
+    public ValueAnimator createAnimator() {
         return null;
     }
 

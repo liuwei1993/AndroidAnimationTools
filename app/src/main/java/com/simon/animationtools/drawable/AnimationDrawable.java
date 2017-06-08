@@ -59,7 +59,7 @@ public abstract class AnimationDrawable extends Drawable implements
         mMatrix = new Matrix();
     }
 
-    protected abstract ValueAnimator createAnimator();
+    public abstract ValueAnimator createAnimator();
 
     protected abstract void drawSelf(@NonNull Canvas canvas);
 
@@ -161,6 +161,7 @@ public abstract class AnimationDrawable extends Drawable implements
     }
 
     //getters and setters
+
 
     public float getScale() {
         return scale;
