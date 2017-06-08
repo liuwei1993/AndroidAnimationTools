@@ -19,6 +19,7 @@ public abstract class ShapeAnimDrawable extends AnimationDrawable {
     private int mBaseColor;
 
     public ShapeAnimDrawable() {
+        super();
         setColor(Color.WHITE);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);

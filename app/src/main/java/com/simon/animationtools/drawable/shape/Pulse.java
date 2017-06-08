@@ -17,11 +17,11 @@ public class Pulse extends CircleAnimDrawable {
     @Override
     public ValueAnimator createAnimator() {
         float fractions[] = new float[]{0f, 1f};
-        return new DrawableAnimatorBuilder(this).
-                scale(fractions, 0f, 1f).
-                alpha(fractions, 1f, 0f).
-                duration(1000).
-                easeInOut(fractions)
+        return new DrawableAnimatorBuilder(this)
+                .scale(fractions, 0f, 1f)
+                .alpha(fractions, 1f, 0f)
+                .duration(1000)
+                .easeInOut(fractions)
                 .build();
     }
 

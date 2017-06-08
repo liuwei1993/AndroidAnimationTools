@@ -1,6 +1,5 @@
 package com.simon.animationtools.drawable.shape;
 
-import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -15,8 +14,4 @@ public abstract class RectAnimDrawable extends ShapeAnimDrawable {
         canvas.drawRect(getDrawBounds(),paint);
     }
 
-    @Override
-    protected ValueAnimator createAnimator() {
-        return null;
-    }
 }

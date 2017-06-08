@@ -201,6 +201,7 @@ public abstract class AnimatorBuilder {
     public ObjectAnimator build() {
 
         PropertyValuesHolder[] holders = new PropertyValuesHolder[fds.size()];
+        Log.d("test","startFrame " + startFrame);
         int i = 0;
         for (Map.Entry<String, FrameData> fd : fds.entrySet()) {
             FrameData data = fd.getValue();

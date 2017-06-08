@@ -6,6 +6,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,12 +14,17 @@ import android.support.annotation.Nullable;
 import com.simon.animationtools.utils.AnimUtils;
 
 /**
+ *
  * Created by simon on 17-6-7.
  */
 
 public abstract class AnimDrawableContainer extends Drawable implements Drawable.Callback, Animatable{
 
-    protected final @NonNull AnimationDrawable[] children;
+    protected final @NonNull Drawable[] children;
+
+    private @ColorInt int bgColor = -1;
+
+    private Drawable bgDrawable;
 
     public AnimDrawableContainer() {
         children = createChildren();
@@ -26,10 +32,10 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
         onChildrenCreate();
     }
 
-    public abstract @NonNull AnimationDrawable[] createChildren();
+    public abstract @NonNull Drawable[] createChildren();
 
     private void initCallback() {
-        for (AnimationDrawable child : children) {
+        for (Drawable child : children) {
             child.setCallback(this);
         }
     }
@@ -55,7 +61,16 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        for (AnimationDrawable child : children) {
+        if(bgDrawable != null) {
+            int count = canvas.save();
+            bgDrawable.draw(canvas);
+            canvas.restoreToCount(count);
+        } else if(bgColor != -1) {
+            int count = canvas.save();
+            canvas.drawColor(bgColor);
+            canvas.restoreToCount(count);
+        }
+        for (Drawable child : children) {
             int count = canvas.save();
             child.draw(canvas);
             canvas.restoreToCount(count);
@@ -65,14 +80,22 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
-        for (AnimationDrawable child : children) {
+        for (Drawable child : children) {
             child.setBounds(bounds);
         }
     }
 
+    public int getChildCount() {
+        return children.length;
+    }
+
+    public Drawable getChildAt(int index) {
+        return children[index];
+    }
+
     @Override
     public void setAlpha(@IntRange(from = 0, to = 255) int alpha) {
-        for (AnimationDrawable child : children) {
+        for (Drawable child : children) {
             child.setAlpha(alpha);
         }
     }
@@ -80,6 +103,14 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
     @Override
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
 
+    }
+
+    public void setBgColor(int bgColor) {
+        this.bgColor = bgColor;
+    }
+
+    public void setBgDrawable(Drawable bgDrawable) {
+        this.bgDrawable = bgDrawable;
     }
 
     @Override

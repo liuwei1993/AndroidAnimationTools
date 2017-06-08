@@ -57,8 +57,6 @@ public abstract class AnimationDrawable extends Drawable implements
     public AnimationDrawable() {
         mCamera = new Camera();
         mMatrix = new Matrix();
-        animator = createAnimator();
-        animator.addUpdateListener(this);
     }
 
     protected abstract ValueAnimator createAnimator();
@@ -143,6 +141,8 @@ public abstract class AnimationDrawable extends Drawable implements
 
     @Override
     public void start() {
+        animator = createAnimator();
+        animator.addUpdateListener(this);
         animator.setStartDelay(getAnimationDelay());
         AnimUtils.start(animator);
     }
@@ -151,26 +151,13 @@ public abstract class AnimationDrawable extends Drawable implements
     public void stop() {
         AnimUtils.stop(animator);
         reset();
+        animator.removeUpdateListener(this);
+        animator = null;
     }
 
     @Override
     public boolean isRunning() {
         return AnimUtils.isRunning(animator);
-    }
-
-    protected Rect clipSquare(Rect rect) {
-        int w = rect.width();
-        int h = rect.height();
-        int min = Math.min(w, h);
-        int cx = rect.centerX();
-        int cy = rect.centerY();
-        int r = min / 2;
-        return new Rect(
-                cx - r,
-                cy - r,
-                cx + r,
-                cy + r
-        );
     }
 
     //getters and setters
@@ -286,10 +273,10 @@ public abstract class AnimationDrawable extends Drawable implements
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
-        setDrawBounds(bounds);
+        this.setDrawBounds(bounds);
     }
 
-    public void setDrawBounds(Rect drawBounds) {
+    public void setDrawBounds(@NonNull Rect drawBounds) {
         setDrawBounds(drawBounds.left, drawBounds.top, drawBounds.right, drawBounds.bottom);
     }
 

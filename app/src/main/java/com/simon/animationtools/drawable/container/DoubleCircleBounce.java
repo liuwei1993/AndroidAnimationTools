@@ -18,12 +18,9 @@ public class DoubleCircleBounce extends AnimDrawableContainer {
     @NonNull
     @Override
     public AnimationDrawable[] createChildren() {
-        return new AnimationDrawable[]{new Bounce(Color.BLUE), new Bounce(Color.BLUE)};
-    }
-
-    @Override
-    protected void onChildrenCreate() {
+        AnimationDrawable[] children = new AnimationDrawable[]{new Bounce(Color.BLUE), new Bounce(Color.BLUE)};
         children[1].setAnimationDelay(-1000);
+        return children;
     }
 
     private static class Bounce extends CircleAnimDrawable {

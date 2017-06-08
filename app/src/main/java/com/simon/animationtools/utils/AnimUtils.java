@@ -3,8 +3,7 @@ package com.simon.animationtools.utils;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.Animatable;
-
-import com.simon.animationtools.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 
 
 public class AnimUtils {
@@ -21,21 +20,25 @@ public class AnimUtils {
         }
     }
 
-    public static void start(AnimationDrawable... animList) {
-        for (Animatable animatable : animList) {
-            animatable.start();
+    public static void start(Drawable... animList) {
+        for (Drawable drawable : animList) {
+            if(drawable instanceof Animatable) {
+                ((Animatable) drawable).start();
+            }
         }
     }
 
-    public static void stop(AnimationDrawable... animList) {
-        for (Animatable animatable : animList) {
-            animatable.stop();
+    public static void stop(Drawable... animList) {
+        for (Drawable drawable : animList) {
+            if(drawable instanceof Animatable) {
+                ((Animatable) drawable).stop();
+            }
         }
     }
 
-    public static boolean isRunning(AnimationDrawable... animList) {
-        for (Animatable animatable : animList) {
-            if (animatable.isRunning()) {
+    public static boolean isRunning(Drawable... animList) {
+        for (Drawable drawable : animList) {
+            if (drawable instanceof Animatable && ((Animatable) drawable).isRunning()) {
                 return true;
             }
         }

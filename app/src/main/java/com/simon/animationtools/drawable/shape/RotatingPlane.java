@@ -5,6 +5,8 @@ import android.graphics.Rect;
 
 import com.simon.animationtools.utils.DrawableAnimatorBuilder;
 
+import static com.simon.animationtools.utils.ShapeUtils.clipSquare;
+
 public class RotatingPlane extends RectAnimDrawable {
 
     @Override

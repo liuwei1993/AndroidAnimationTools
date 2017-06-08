@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     android:id="@+id/lay_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/image"
-        app:layout_constraintBottom_toBottomOf="@id/lay_root"
-        app:layout_constraintLeft_toLeftOf="@+id/lay_root"
-        app:layout_constraintRight_toRightOf="@+id/lay_root"
-        app:layout_constraintTop_toTopOf="@id/lay_root"
+        android:layout_centerInParent="true"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
