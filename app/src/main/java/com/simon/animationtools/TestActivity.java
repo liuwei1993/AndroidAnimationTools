@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.simon.animationtools.drawable.container.CubeGrid;
+import com.simon.animationtools.drawable.container.MultiplePulse;
 import com.simon.animationtools.utils.AnimUtils;
 
 /**
@@ -28,7 +28,7 @@ public class TestActivity extends Activity {
         getWindow().setBackgroundDrawableResource(R.color.colorAccent);
         setContentView(R.layout.activity_test);
         ImageView imageView = (ImageView) findViewById(R.id.image);
-        final CubeGrid drawable = new CubeGrid();
+        final MultiplePulse drawable = new MultiplePulse();
         imageView.setImageDrawable(drawable);
         imageView.setBackgroundColor(Color.GREEN);
         drawable.start();

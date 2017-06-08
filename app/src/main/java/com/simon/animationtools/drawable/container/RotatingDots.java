@@ -14,6 +14,7 @@ import com.simon.animationtools.utils.DrawableAnimatorBuilder;
 import static com.simon.animationtools.utils.ShapeUtils.clipSquare;
 
 /**
+ * RotatingDots
  * Created by simon on 17-6-8.
  */
 

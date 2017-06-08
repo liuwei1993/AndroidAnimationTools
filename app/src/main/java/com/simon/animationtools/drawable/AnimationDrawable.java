@@ -187,11 +187,11 @@ public abstract class AnimationDrawable extends Drawable implements
     }
 
     public float getPivotX() {
-        return drawBounds.centerX();
+        return pivotX;
     }
 
     public float getPivotY() {
-        return drawBounds.centerY();
+        return pivotY;
     }
 
     public int getAnimationDelay() {
@@ -258,6 +258,14 @@ public abstract class AnimationDrawable extends Drawable implements
         this.translationYPercentage = translationYPercentage;
     }
 
+    public void setPivotX(float pivotX) {
+        this.pivotX = pivotX;
+    }
+
+    public void setPivotY(float pivotY) {
+        this.pivotY = pivotY;
+    }
+
     public Rect getDrawBounds() {
         return drawBounds;
     }
@@ -274,6 +282,8 @@ public abstract class AnimationDrawable extends Drawable implements
 
     public void setDrawBounds(int left, int top, int right, int bottom) {
         this.drawBounds = new Rect(left, top, right, bottom);
+        pivotX = drawBounds.centerX();
+        pivotY = drawBounds.centerY();
     }
 
 }
