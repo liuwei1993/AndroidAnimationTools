@@ -25,13 +25,10 @@ public class WanderingCubes extends AnimDrawableContainer {
     @NonNull
     @Override
     public Drawable[] createChildren() {
-        AnimationDrawable[] children = {
-                new Cube(0),
-                new Cube(3)
+        return new AnimationDrawable[]{
+                new Cube(0, Color.RED),
+                new Cube(3,Color.BLUE)
         };
-        children[1].setColor(Color.RED);
-        children[0].setColor(Color.BLUE);
-        return children;
     }
 
     @Override
@@ -52,9 +49,10 @@ public class WanderingCubes extends AnimDrawableContainer {
     private class Cube extends RectAnimDrawable {
         int startFrame;
 
-        public Cube(int startFrame) {
+        public Cube(int startFrame, int color) {
             super();
             this.startFrame = startFrame;
+            setColor(color);
         }
 
         @Override

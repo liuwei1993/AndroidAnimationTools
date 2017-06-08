@@ -26,13 +26,11 @@ public abstract class ShapeAnimDrawable extends AnimationDrawable {
         mPaint.setColor(mUseColor);
     }
 
-    @Override
     public void setColor(int color) {
         mBaseColor = color;
         updateUseColor();
     }
 
-    @Override
     public int getColor() {
         return mBaseColor;
     }

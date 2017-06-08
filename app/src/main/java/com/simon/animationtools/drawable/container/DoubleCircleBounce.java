@@ -10,6 +10,7 @@ import com.simon.animationtools.drawable.shape.CircleAnimDrawable;
 import com.simon.animationtools.utils.DrawableAnimatorBuilder;
 
 /**
+ * DoubleCircleBounce
  * Created by simon on 17-6-7.
  */
 
@@ -18,7 +19,7 @@ public class DoubleCircleBounce extends AnimDrawableContainer {
     @NonNull
     @Override
     public AnimationDrawable[] createChildren() {
-        AnimationDrawable[] children = new AnimationDrawable[]{new Bounce(Color.BLUE), new Bounce(Color.BLUE)};
+        AnimationDrawable[] children = new AnimationDrawable[]{new Bounce(Color.WHITE), new Bounce(Color.WHITE)};
         children[1].setAnimationDelay(-1000);
         return children;
     }

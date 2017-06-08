@@ -63,10 +63,6 @@ public abstract class AnimationDrawable extends Drawable implements
 
     protected abstract void drawSelf(@NonNull Canvas canvas);
 
-    public abstract int getColor();
-
-    public abstract void setColor(int color);
-
     @Override
     public void draw(@NonNull Canvas canvas) {
         float tx = getTranslationX();
@@ -142,17 +138,21 @@ public abstract class AnimationDrawable extends Drawable implements
     @Override
     public void start() {
         animator = createAnimator();
-        animator.addUpdateListener(this);
-        animator.setStartDelay(getAnimationDelay());
-        AnimUtils.start(animator);
+        if(animator != null) {
+            animator.addUpdateListener(this);
+            animator.setStartDelay(getAnimationDelay());
+            AnimUtils.start(animator);
+        }
     }
 
     @Override
     public void stop() {
         AnimUtils.stop(animator);
         reset();
-        animator.removeUpdateListener(this);
-        animator = null;
+        if(animator != null) {
+            animator.removeUpdateListener(this);
+            animator = null;
+        }
     }
 
     @Override
@@ -187,19 +187,11 @@ public abstract class AnimationDrawable extends Drawable implements
     }
 
     public float getPivotX() {
-        return pivotX;
-    }
-
-    public void setPivotX(float pivotX) {
-        this.pivotX = pivotX;
+        return drawBounds.centerX();
     }
 
     public float getPivotY() {
-        return pivotY;
-    }
-
-    public void setPivotY(float pivotY) {
-        this.pivotY = pivotY;
+        return drawBounds.centerY();
     }
 
     public int getAnimationDelay() {
@@ -282,8 +274,6 @@ public abstract class AnimationDrawable extends Drawable implements
 
     public void setDrawBounds(int left, int top, int right, int bottom) {
         this.drawBounds = new Rect(left, top, right, bottom);
-        setPivotX(getDrawBounds().centerX());
-        setPivotY(getDrawBounds().centerY());
     }
 
 }

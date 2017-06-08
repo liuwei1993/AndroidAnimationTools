@@ -1,10 +1,11 @@
 package com.simon.animationtools.drawable;
 
+import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
+import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
@@ -18,18 +19,19 @@ import com.simon.animationtools.utils.AnimUtils;
  * Created by simon on 17-6-7.
  */
 
-public abstract class AnimDrawableContainer extends Drawable implements Drawable.Callback, Animatable{
+public abstract class AnimDrawableContainer extends AnimationDrawable{
 
     protected final @NonNull Drawable[] children;
 
-    private @ColorInt int bgColor = -1;
+    private Paint bgPaint;
 
-    private Drawable bgDrawable;
+    private @ColorInt int bgColor = -1;
 
     public AnimDrawableContainer() {
         children = createChildren();
+        bgPaint = new Paint();
+        bgPaint.setAntiAlias(true);
         initCallback();
-        onChildrenCreate();
     }
 
     public abstract @NonNull Drawable[] createChildren();
@@ -38,10 +40,6 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
         for (Drawable child : children) {
             child.setCallback(this);
         }
-    }
-
-    protected void onChildrenCreate() {
-
     }
 
     @Override
@@ -61,20 +59,31 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        if(bgDrawable != null) {
+        super.draw(canvas);
+        drawChildren(canvas);
+    }
+
+    @Override
+    protected void drawSelf(@NonNull Canvas canvas) {
+        if(bgColor != -1) {
             int count = canvas.save();
-            bgDrawable.draw(canvas);
-            canvas.restoreToCount(count);
-        } else if(bgColor != -1) {
-            int count = canvas.save();
-            canvas.drawColor(bgColor);
+            bgPaint.setColor(bgColor);
+            canvas.drawRect(getBounds(), bgPaint);
             canvas.restoreToCount(count);
         }
+    }
+
+    protected void drawChildren(@NonNull Canvas canvas) {
         for (Drawable child : children) {
             int count = canvas.save();
             child.draw(canvas);
             canvas.restoreToCount(count);
         }
+    }
+
+    @Override
+    protected ValueAnimator createAnimator() {
+        return null;
     }
 
     @Override
@@ -109,10 +118,6 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
         this.bgColor = bgColor;
     }
 
-    public void setBgDrawable(Drawable bgDrawable) {
-        this.bgDrawable = bgDrawable;
-    }
-
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
@@ -120,11 +125,13 @@ public abstract class AnimDrawableContainer extends Drawable implements Drawable
 
     @Override
     public void start() {
+        super.start();
         AnimUtils.start(children);
     }
 
     @Override
     public void stop() {
+        super.stop();
         AnimUtils.stop(children);
     }
 

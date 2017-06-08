@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.simon.animationtools.drawable.container.WanderingCubes;
+import com.simon.animationtools.drawable.container.CubeGrid;
 import com.simon.animationtools.utils.AnimUtils;
 
 /**
@@ -25,12 +25,12 @@ public class TestActivity extends Activity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setBackgroundDrawableResource(R.color.colorAccent);
         setContentView(R.layout.activity_test);
         ImageView imageView = (ImageView) findViewById(R.id.image);
-        imageView.setBackgroundColor(Color.WHITE);
-        final WanderingCubes drawable = new WanderingCubes();
-//        drawable.setBgColor(Color.GREEN);
+        final CubeGrid drawable = new CubeGrid();
         imageView.setImageDrawable(drawable);
+        imageView.setBackgroundColor(Color.GREEN);
         drawable.start();
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
