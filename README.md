@@ -61,8 +61,8 @@ drawable包下
 - [AnimDrawableContainer](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/AnimDrawableContainer.java)
 
 animator包下
-- [DrawableAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/masterlibrary/src/main/java/com/simon/core/animationtools/animator/ViewAnimatorBuilder.java)
-- [ViewAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/masterlibrary/src/main/java/com/simon/core/animationtools/animator/ViewAnimatorBuilder.java)
+- [DrawableAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/animator/DrawableAnimatorBuilder.java)
+- [ViewAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/animator/ViewAnimatorBuilder.java)
 
 > 继承AnimatonDrawable类后使用DrawableAnimatorBuilder可以使Drawable具备动画效果，而AnimDrawableContainer自身继承于AnimationDrawable并且可以管理多个AnimatonDrawable从而实现复杂动画效果
 > 而interpolator包下的工具类可以帮助我们高效的创建复杂的Interpolator.
