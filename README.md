@@ -21,7 +21,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.liuwei1993:MultiLevelList:v1.0'
+    compile 'com.github.liuwei1993:AndroidAnimationTools:1.0'
 }
 ```
 #### 示例：
