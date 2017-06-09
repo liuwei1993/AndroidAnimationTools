@@ -12,7 +12,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.simon.core.animationtools.utils.AnimUtils;
+import com.simon.core.animationtools.animator.AnimUtils;
 
 /**
  *

@@ -24,7 +24,7 @@ import com.simon.core.animationtools.drawable.container.ThreeBounce;
 import com.simon.core.animationtools.drawable.container.WanderingCubes;
 import com.simon.core.animationtools.drawable.container.WavingBars;
 import com.simon.core.animationtools.drawable.shape.RotatingPlane;
-import com.simon.core.animationtools.utils.ArgbEvaluator;
+import com.simon.core.animationtools.animator.ArgbEvaluator;
 
 import static com.simon.animationtools.Assets.colors;
 

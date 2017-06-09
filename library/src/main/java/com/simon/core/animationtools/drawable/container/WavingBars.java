@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import com.simon.core.animationtools.drawable.AnimDrawableContainer;
 import com.simon.core.animationtools.drawable.AnimationDrawable;
 import com.simon.core.animationtools.drawable.shape.RectAnimDrawable;
-import com.simon.core.animationtools.utils.DrawableAnimatorBuilder;
+import com.simon.core.animationtools.animator.DrawableAnimatorBuilder;
 import com.simon.core.animationtools.utils.ShapeUtils;
 
 import static com.simon.core.animationtools.utils.ShapeUtils.clipSquare;

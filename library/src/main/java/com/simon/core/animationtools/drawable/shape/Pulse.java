@@ -2,7 +2,7 @@ package com.simon.core.animationtools.drawable.shape;
 
 import android.animation.ValueAnimator;
 
-import com.simon.core.animationtools.utils.DrawableAnimatorBuilder;
+import com.simon.core.animationtools.animator.DrawableAnimatorBuilder;
 
 /**
  * Created by simon on 17-6-7.

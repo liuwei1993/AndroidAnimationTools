@@ -3,7 +3,7 @@ package com.simon.core.animationtools.drawable.shape;
 import android.animation.ValueAnimator;
 import android.graphics.Rect;
 
-import com.simon.core.animationtools.utils.DrawableAnimatorBuilder;
+import com.simon.core.animationtools.animator.DrawableAnimatorBuilder;
 
 import static com.simon.core.animationtools.utils.ShapeUtils.clipSquare;
 

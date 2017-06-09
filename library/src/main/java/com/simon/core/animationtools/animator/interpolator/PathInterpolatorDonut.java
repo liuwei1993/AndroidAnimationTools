@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.simon.core.animationtools.interpolator;
+package com.simon.core.animationtools.animator.interpolator;
 
 import android.graphics.Path;
 import android.graphics.PathMeasure;

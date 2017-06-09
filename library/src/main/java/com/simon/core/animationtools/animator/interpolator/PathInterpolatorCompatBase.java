@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.simon.core.animationtools.interpolator;
+package com.simon.core.animationtools.animator.interpolator;
 
 import android.graphics.Path;
 import android.view.animation.Interpolator;

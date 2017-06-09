@@ -1,4 +1,4 @@
-package com.simon.core.animationtools.utils;
+package com.simon.core.animationtools.animator;
 
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
@@ -8,7 +8,7 @@ import android.util.Property;
 import android.view.animation.Animation;
 import android.view.animation.Interpolator;
 
-import com.simon.core.animationtools.interpolator.KeyFrameInterpolator;
+import com.simon.core.animationtools.animator.interpolator.KeyFrameInterpolator;
 
 import java.util.HashMap;
 import java.util.Locale;

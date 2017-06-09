@@ -1,4 +1,4 @@
-package com.simon.core.animationtools.interpolator;
+package com.simon.core.animationtools.animator.interpolator;
 
 import android.view.animation.Interpolator;
 

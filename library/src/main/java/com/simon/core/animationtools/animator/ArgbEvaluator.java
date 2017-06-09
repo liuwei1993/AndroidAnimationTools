@@ -1,4 +1,4 @@
-package com.simon.core.animationtools.utils;
+package com.simon.core.animationtools.animator;
 
 import android.animation.TypeEvaluator;
 

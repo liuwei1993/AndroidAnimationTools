@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.simon.core.animationtools.interpolator;
+package com.simon.core.animationtools.animator.interpolator;
 
 import android.annotation.TargetApi;
 import android.graphics.Path;

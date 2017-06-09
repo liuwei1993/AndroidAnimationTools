@@ -1,4 +1,4 @@
-package com.simon.core.animationtools.utils;
+package com.simon.core.animationtools.animator;
 
 import android.support.annotation.FloatRange;
 import android.util.Property;
@@ -7,7 +7,7 @@ import android.view.View;
 /**
  * Created by simon liu.
  */
-public class ViewAnimatorBuilder extends AnimatorBuilder{
+public class ViewAnimatorBuilder extends AnimatorBuilder {
 
     public ViewAnimatorBuilder(View target) {
         super(target);

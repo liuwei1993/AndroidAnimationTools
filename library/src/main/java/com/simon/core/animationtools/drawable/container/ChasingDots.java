@@ -10,7 +10,7 @@ import android.view.animation.LinearInterpolator;
 import com.simon.core.animationtools.drawable.AnimDrawableContainer;
 import com.simon.core.animationtools.drawable.AnimationDrawable;
 import com.simon.core.animationtools.drawable.shape.CircleAnimDrawable;
-import com.simon.core.animationtools.utils.DrawableAnimatorBuilder;
+import com.simon.core.animationtools.animator.DrawableAnimatorBuilder;
 
 import static com.simon.core.animationtools.utils.ShapeUtils.clipSquare;
 
