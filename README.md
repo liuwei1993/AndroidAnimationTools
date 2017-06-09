@@ -5,9 +5,26 @@
 
 ### 使用方法
 
+#### 导入 
 
+> Step 1. 添加JitPack repository到你的主项目build.gradle文件
 
-##### 示例：
+```
+allprojects {
+    repositories {
+	...
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+> Step 2. 添加依赖
+
+```
+dependencies {
+    compile 'com.github.liuwei1993:MultiLevelList:v1.0'
+}
+```
+#### 示例：
 
 - [WavingBars](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/container/WavingBars.java)
 - [WanderingCubes](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/container/WanderingCubes.java)
@@ -21,7 +38,7 @@
 - [ThreeBounce](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/container/ThreeBounce.java)
 - [ChasingDots](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/container/ChasingDots.java)
 
-##### 示例使用：
+#### 示例使用：
 java中：
 ```
 ImageView imageView = (ImageView) itemView.findViewById(R.id.image);
@@ -52,9 +69,9 @@ layout中：
 
 ### 实现原理
 
-##### 核心类：
+#### 核心类：
 
-该库主要有两个重要部分组成一个是drawable系列，用于绘制图形，一个是animator系列，用于方便的构造Animator.
+> 该库主要有两个重要部分组成一个是drawable系列，用于绘制图形，一个是animator系列，用于方便的构造Animator.
 
 drawable包下
 - [AnimationDrawable](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/drawable/AnimationDrawable.java)
@@ -64,6 +81,6 @@ animator包下
 - [DrawableAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/animator/DrawableAnimatorBuilder.java)
 - [ViewAnimatorBuilder](https://github.com/liuwei1993/AndroidAnimationTools/blob/master/library/src/main/java/com/simon/core/animationtools/animator/ViewAnimatorBuilder.java)
 
-> 继承AnimatonDrawable类后使用DrawableAnimatorBuilder可以使Drawable具备动画效果，而AnimDrawableContainer自身继承于AnimationDrawable并且可以管理多个AnimatonDrawable从而实现复杂动画效果
+> 继承AnimatonDrawable类后使用DrawableAnimatorBuilder可以使Drawable具备动画效果，而AnimDrawableContainer自身继承于AnimationDrawable并且可以管理多个AnimatonDrawable从而实现复杂动画效果.
 > 而interpolator包下的工具类可以帮助我们高效的创建复杂的Interpolator.
 > 使用者可参考示例代码来自定义各种复杂动画效果.
